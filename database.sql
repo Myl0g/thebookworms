@@ -24,8 +24,8 @@ CREATE TABLE members (
 CREATE TABLE books (
     book_id bigserial,
     ISBN varchar(50),
-    publisher_id integer REFERENCES publishers (publisher_id),
-    author_id integer REFERENCES authors (author_id),
+    publisher_id bigserial REFERENCES publishers (publisher_id),
+    author_id bigserial REFERENCES authors (author_id),
     book_name varchar(90) NOT NULL,
     book_genre varchar(50),
     total_copies integer CHECK (total_copies > 0),
@@ -33,8 +33,8 @@ CREATE TABLE books (
 );
 
 CREATE TABLE borrow_records (
-    member_id integer REFERENCES members (member_id),
-    book_id varchar(50) REFERENCES books (book_id),
+    member_id bigserial REFERENCES members (member_id),
+    book_id bigserial REFERENCES books (book_id),
     return_by date NOT NULL
 );
 
