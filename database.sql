@@ -41,12 +41,14 @@ CREATE TABLE borrow_records (
 INSERT INTO
     publishers (name, location)
 VALUES
-    ('Bloomsbury Publishing', 'London, England');
+    ('Bloomsbury Publishing', 'London, England'),
+    ('FreePress', 'New York, USA');
 
 INSERT INTO
     authors (first_name, last_name, gender, nationality)
 VALUES
-    ('Joanne', 'Rowling', 'female', 'British');
+    ('Joanne', 'Rowling', 'female', 'British'),
+    ('Sam', 'Harris', 'male', 'American');
 
 INSERT INTO
     members (first_name, last_name)
@@ -70,9 +72,18 @@ VALUES
         'Harry Potter and the Chamber of Secrets',
         'Fantasy Fiction',
         10
+    ),
+    (
+        null,
+        2,
+        2,
+        'Free Will',
+        'nonfiction',
+        3
     );
 
 INSERT INTO
     borrow_records (member_id, book_id, return_by)
 VALUES
-    (1, 1, '2020-10-30');
+    (1, 1, '2020-10-30'),
+    (1, 2, '2020-12-29');
