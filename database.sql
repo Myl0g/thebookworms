@@ -42,18 +42,21 @@ INSERT INTO
     publishers (name, location)
 VALUES
     ('Bloomsbury Publishing', 'London, England'),
-    ('FreePress', 'New York, USA');
+    ('FreePress', 'New York, USA'),
+    ('John Wiley & Sons', 'New Jersey, United States');
 
 INSERT INTO
     authors (first_name, last_name, gender, nationality)
 VALUES
     ('Joanne', 'Rowling', 'female', 'British'),
-    ('Sam', 'Harris', 'male', 'American');
+    ('Sam', 'Harris', 'male', 'American'),
+    ('Jaideva', 'Goswami', 'male', 'American');
 
 INSERT INTO
     members (first_name, last_name)
 VALUES
-    ('Chenglei', 'Si');
+    ('Chenglei', 'Si'),
+    ('Milo', 'Gilad');
 
 INSERT INTO
     books (
@@ -80,10 +83,19 @@ VALUES
         'Free Will',
         'nonfiction',
         3
+    ),
+    (
+        '9780470303740',
+        3,
+        3,
+        'Fundamentals of wavelets',
+        'signal_processing',
+        5
     );
 
 INSERT INTO
     borrow_records (member_id, book_id, return_by)
 VALUES
     (1, 1, '2020-10-30'),
-    (1, 2, '2020-12-29');
+    (1, 2, '2020-12-29'),
+    (2, 3, '2020-10-21');
