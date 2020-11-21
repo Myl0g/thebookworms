@@ -81,7 +81,7 @@ VALUES
         2,
         2,
         'Free Will',
-        'nonfiction',
+        'Non-fiction',
         3
     ),
     (
@@ -89,7 +89,7 @@ VALUES
         3,
         3,
         'Fundamentals of wavelets',
-        'signal_processing',
+        'Non-fiction',
         5
     );
 
