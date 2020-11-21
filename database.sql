@@ -5,11 +5,6 @@ CREATE TABLE publishers (
     CONSTRAINT publisher_key PRIMARY KEY (publisher_id)
 );
 
-INSERT INTO
-    publishers (name, location)
-VALUES
-    ('Bloomsbury Publishing', 'London, England');
-
 CREATE TABLE authors (
     author_id bigserial,
     first_name varchar(50),
@@ -19,22 +14,12 @@ CREATE TABLE authors (
     CONSTRAINT author_key PRIMARY KEY (author_id)
 );
 
-INSERT INTO
-    authors (first_name, last_name, gender, nationality)
-VALUES
-    ('Joanne', 'Rowling', 'female', 'British');
-
 CREATE TABLE members (
     member_id bigserial,
     first_name varchar(50),
     last_name varchar(50),
     CONSTRAINT member_key PRIMARY KEY (member_id)
 );
-
-INSERT INTO
-    members (first_name, last_name)
-VALUES
-    ('Chenglei', 'Si');
 
 CREATE TABLE books (
     ISBN varchar(50),
@@ -45,6 +30,27 @@ CREATE TABLE books (
     total_copies integer,
     CONSTRAINT book_key PRIMARY KEY (ISBN)
 );
+
+CREATE TABLE borrow_records (
+    member_id integer REFERENCES members (member_id),
+    ISBN varchar(50) REFERENCES books (ISBN),
+    return_by date
+);
+
+INSERT INTO
+    publishers (name, location)
+VALUES
+    ('Bloomsbury Publishing', 'London, England');
+
+INSERT INTO
+    authors (first_name, last_name, gender, nationality)
+VALUES
+    ('Joanne', 'Rowling', 'female', 'British');
+
+INSERT INTO
+    members (first_name, last_name)
+VALUES
+    ('Chenglei', 'Si');
 
 INSERT INTO
     books (
@@ -64,12 +70,6 @@ VALUES
         'Fantasy Fiction',
         10
     );
-
-CREATE TABLE borrow_records (
-    member_id integer REFERENCES members (member_id),
-    ISBN varchar(50) REFERENCES books (ISBN),
-    return_by date
-);
 
 INSERT INTO
     borrow_records (member_id, ISBN, return_by)
