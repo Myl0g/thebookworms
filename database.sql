@@ -38,64 +38,18 @@ CREATE TABLE borrow_records (
     return_by date NOT NULL
 );
 
-INSERT INTO
-    publishers (name, location)
-VALUES
-    ('Bloomsbury Publishing', 'London, England'),
-    ('FreePress', 'New York, USA'),
-    ('John Wiley & Sons', 'New Jersey, United States');
+COPY publishers (name, location)
+FROM 'C:\Users\Public\publishers.csv' 
+WITH (FORMAT CSV);
 
-INSERT INTO
-    authors (first_name, last_name, gender, nationality)
-VALUES
-    ('Joanne', 'Rowling', 'female', 'British'),
-    ('Sam', 'Harris', 'male', 'American'),
-    ('Jaideva', 'Goswami', 'male', 'American');
+COPY authors (first_name, last_name, gender, nationality)
+FROM 'C:\Users\Public\authors.csv' 
+WITH (FORMAT CSV);
 
-INSERT INTO
-    members (first_name, last_name)
-VALUES
-    ('Chenglei', 'Si'),
-    ('Milo', 'Gilad');
+COPY books (ISBN, publisher_id, author_id, book_name, book_genre, total_copies)
+FROM 'C:\Users\Public\books.csv' 
+WITH (FORMAT CSV);
 
-INSERT INTO
-    books (
-        ISBN,
-        publisher_id,
-        author_id,
-        book_name,
-        book_genre,
-        total_copies
-    )
-VALUES
-    (
-        '978-3-16-148410-0',
-        1,
-        1,
-        'Harry Potter and the Chamber of Secrets',
-        'Fantasy Fiction',
-        10
-    ),
-    (
-        null,
-        2,
-        2,
-        'Free Will',
-        'Non-fiction',
-        3
-    ),
-    (
-        '9780470303740',
-        3,
-        3,
-        'Fundamentals of wavelets',
-        'Non-fiction',
-        5
-    );
 
-INSERT INTO
-    borrow_records (member_id, book_id, return_by)
-VALUES
-    (1, 1, '2020-10-30'),
-    (1, 2, '2020-12-29'),
-    (2, 3, '2020-10-21');
+
+ 
